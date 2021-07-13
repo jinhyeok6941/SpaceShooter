@@ -9,6 +9,8 @@ public class BarrelCtrl : MonoBehaviour
 
     private new MeshRenderer renderer;
 
+    public Texture[] textures;
+
     void Start()
     {
         renderer = GetComponentInChildren<MeshRenderer>();
