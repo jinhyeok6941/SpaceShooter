@@ -1,3 +1,5 @@
+#pragma warning disable IDE0051
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,9 +25,13 @@ public class PlayerCtrl : MonoBehaviour
     public float moveSpeed = 8.0f;
     public PlayerAnim playerAnim;
 
+    private Animation anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animation>();
+        anim.Play(playerAnim.idle.name);
     }
 
     // Update is called once per frame
