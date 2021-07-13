@@ -57,6 +57,31 @@ public class PlayerCtrl : MonoBehaviour
 
         transform.Translate(dir.normalized * Time.deltaTime * moveSpeed);
         transform.Rotate(Vector3.up * Time.deltaTime * 100.0f * r);
+
+        if (v >= 0.1f)
+        {
+            // 전진 애니메이션으로 전환
+            anim.CrossFade(playerAnim.runForward.name, 0.3f);
+        }
+        else if (v <= -0.1f)
+        {
+            // 후진
+            anim.CrossFade(playerAnim.runBackward.name, 0.3f);
+        }
+        else if (h >= 0.1f)
+        {
+            // 오른쪽 이동
+            anim.CrossFade(playerAnim.runRight.name, 0.3f);
+        }
+        else if (h <= -0.1f)
+        {
+            // 왼쪽으로 이동
+            anim.CrossFade(playerAnim.runLeft.name, 0.3f);
+        }
+        else
+        {
+            anim.CrossFade(playerAnim.idle.name, 0.3f);
+        }
     }
 
 
