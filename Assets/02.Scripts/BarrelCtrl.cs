@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BarrelCtrl : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class BarrelCtrl : MonoBehaviour
     void Start()
     {
         renderer = GetComponentInChildren<MeshRenderer>();
+
+        /*
+            Random.Range(0, 3)  // 0, 1, 2
+            Random.Range(0.0f, 3.0f) // 0.0f ~ 3.0f
+        */
+        renderer.material.mainTexture = textures[Random.Range(0, textures.Length)];
     }
 
     void OnCollisionEnter(Collision coll)
