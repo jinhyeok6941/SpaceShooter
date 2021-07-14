@@ -22,13 +22,20 @@ public class FireCtrl : MonoBehaviour
         muzzleFlash.enabled = false;
     }
 
-    // Update is called once per frame
+
+    private RaycastHit hit;
+
     void Update()
     {
         Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.green);
 
         if (Input.GetMouseButtonDown(0))
         {
+            if (Physics.Raycast(firePos.position, firePos.forward, out hit, 10.0f, 1 << LayerMask.NameToLayer("MONSTER_BODY")))
+            {
+                Debug.Log(hit.collider.name);
+            }
+
             Fire();
         }
     }
