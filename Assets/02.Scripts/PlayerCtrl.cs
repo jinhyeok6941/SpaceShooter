@@ -26,12 +26,17 @@ public class PlayerCtrl : MonoBehaviour
     public PlayerAnim playerAnim;
 
     private Animation anim;
+    private float turnSpeed = 0;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         anim = GetComponent<Animation>();
         anim.Play(playerAnim.idle.name);
+
+
+        yield return new WaitForSeconds(0.2f);
+        turnSpeed = 100.0f;
     }
 
     // Update is called once per frame
@@ -56,7 +61,7 @@ public class PlayerCtrl : MonoBehaviour
         Vector3 dir = (Vector3.forward * v) + (Vector3.right * h);
 
         transform.Translate(dir.normalized * Time.deltaTime * moveSpeed);
-        transform.Rotate(Vector3.up * Time.deltaTime * 100.0f * r);
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * r);
 
         if (v >= 0.1f)
         {
