@@ -5,16 +5,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<Transform> points = new List<Transform>();
+    public GameObject monsterPrefab;
+    public float createTime = 3.0f;
 
-    // Start is called before the first frame update
+    public bool isGameOver = false;
+
     void Start()
     {
         GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>(true, points);
+
+        InvokeRepeating("CreateMonster", 2.0f, createTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    void CreateMonster()
     {
-
+        int idx = Random.Range(1, points.Count);
+        GameObject monster = Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);
     }
+
 }
