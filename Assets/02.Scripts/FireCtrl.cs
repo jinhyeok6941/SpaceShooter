@@ -19,6 +19,7 @@ public class FireCtrl : MonoBehaviour
         audio = GetComponent<AudioSource>();
 
         muzzleFlash = firePos.GetComponentInChildren<MeshRenderer>();
+        muzzleFlash.enabled = false;
     }
 
     // Update is called once per frame
@@ -34,6 +35,19 @@ public class FireCtrl : MonoBehaviour
     {
         Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         audio.PlayOneShot(fireSfx, 0.8f);
+        StartCoroutine(this.ShowMuzzleFlash());
+        //StartCoroutine("ShowMuzzleFlash");
+    }
+
+    // 코루틴 (Co-Routine)
+    IEnumerator ShowMuzzleFlash()
+    {
+        // MuzzleFlash의 MeshRenderer 활성화
+        muzzleFlash.enabled = true;
+
+        yield return new WaitForSeconds(0.3f);
+
+        muzzleFlash.enabled = false;
     }
 }
 
