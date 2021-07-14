@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterCtrl : MonoBehaviour
 {
@@ -22,10 +23,12 @@ public class MonsterCtrl : MonoBehaviour
     public float traceDist = 10.0f;
 
     private WaitForSeconds ws;
+    private NavMeshAgent nv;
 
     void Start()
     {
         ws = new WaitForSeconds(0.3f);
+        nv = GetComponent<NavMeshAgent>();
 
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         monsterTr = GetComponent<Transform>(); // transform;
@@ -67,9 +70,12 @@ public class MonsterCtrl : MonoBehaviour
             switch (state)
             {
                 case STATE.IDLE:
+                    nv.isStopped = true;
                     break;
 
                 case STATE.TRACE:
+                    nv.SetDestination(playerTr.position);
+                    nv.isStopped = false;
                     break;
 
                 case STATE.ATTACK:
