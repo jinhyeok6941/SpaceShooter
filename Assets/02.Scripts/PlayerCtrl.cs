@@ -28,6 +28,9 @@ public class PlayerCtrl : MonoBehaviour
     private Animation anim;
     private float turnSpeed = 0;
 
+    private float initHp = 100.0f;
+    private float currHp = 100.0f;
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -89,7 +92,20 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("PUNCH"))
+        {
+            currHp -= 10.0f;
+            if (currHp <= 0.0f)
+            {
+                PlayerDie();
+            }
+        }
+    }
 
-
-
+    void PlayerDie()
+    {
+        Debug.Log("Player Die !!!");
+    }
 }
