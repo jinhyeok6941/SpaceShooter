@@ -1139,7 +1139,6 @@ MonoBehaviour:
   points: []
   monsterPrefab: {fileID: 1948769303906790600, guid: 04830702a1e7b4e17b79b76d706eec7b, type: 3}
   createTime: 3
-  isGameOver: 0
 --- !u!4 &634972794
 Transform:
   m_ObjectHideFlags: 0
@@ -1823,7 +1822,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892304523}
-  m_LocalRotation: {x: 0.08521262, y: 0.00000001662453, z: -0.0000000014217908, w: 0.9963628}
+  m_LocalRotation: {x: 0.08521264, y: -0.000000018206674, z: 0.0000000015571019, w: 0.9963628}
   m_LocalPosition: {x: 0, y: 2.46, z: -3.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2067,7 +2066,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.08521262, y: 0.00000001662453, z: -0.0000000014217908, w: 0.9963628}
+  m_LocalRotation: {x: 0.08521264, y: -0.000000018206674, z: 0.0000000015571019, w: 0.9963628}
   m_LocalPosition: {x: 0, y: 2.46, z: -3.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

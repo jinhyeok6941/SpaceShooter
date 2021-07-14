@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
     public List<Transform> points = new List<Transform>();
     public GameObject monsterPrefab;
     public float createTime = 3.0f;
@@ -20,6 +22,19 @@ public class GameManager : MonoBehaviour
             {
                 CancelInvoke("CreateMonster");
             }
+        }
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
         }
     }
 
