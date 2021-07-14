@@ -27,11 +27,13 @@ public class MonsterCtrl : MonoBehaviour
     private Animator anim;
 
     private int hashTrace;
+    private int hashAttack;
 
     void Start()
     {
         // Animator Controller의 Parameter의 해시값을 추출
         hashTrace = Animator.StringToHash("IsTrace");
+        hashAttack = Animator.StringToHash("IsAttack");
 
         ws = new WaitForSeconds(0.3f);
         nv = GetComponent<NavMeshAgent>();
@@ -86,9 +88,12 @@ public class MonsterCtrl : MonoBehaviour
                     nv.isStopped = false;
 
                     anim.SetBool(hashTrace, true);
+                    anim.SetBool(hashAttack, false);
                     break;
 
                 case STATE.ATTACK:
+                    nv.isStopped = true;
+                    anim.SetBool(hashAttack, true);
                     break;
 
                 case STATE.DIE:
