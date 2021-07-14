@@ -134,6 +134,11 @@ public class MonsterCtrl : MonoBehaviour
         anim.SetTrigger(hashDie);
     }
 
+
+    void OnTriggerEnter(Collider coll)
+    {
+        Debug.Log(coll.gameObject.name);
+    }
 }
 
 
