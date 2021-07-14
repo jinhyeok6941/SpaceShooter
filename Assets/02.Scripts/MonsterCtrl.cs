@@ -31,6 +31,7 @@ public class MonsterCtrl : MonoBehaviour
         monsterTr = GetComponent<Transform>(); // transform;
 
         StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction());
     }
 
     // 몬스터의 상태를 측정하는 코루틴
@@ -57,6 +58,31 @@ public class MonsterCtrl : MonoBehaviour
         }
 
     }
+
+    // 몬스터의 상태값에 따라 적절한 행동(Behaviour) 처리
+    IEnumerator MonsterAction()
+    {
+        while (!isDie)
+        {
+            switch (state)
+            {
+                case STATE.IDLE:
+                    break;
+
+                case STATE.TRACE:
+                    break;
+
+                case STATE.ATTACK:
+                    break;
+
+                case STATE.DIE:
+                    break;
+            }
+
+            yield return ws;
+        }
+    }
+
 }
 
 
