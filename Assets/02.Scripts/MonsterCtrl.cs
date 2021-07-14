@@ -17,15 +17,44 @@ public class MonsterCtrl : MonoBehaviour
     private Transform playerTr;
     private Transform monsterTr;
 
+    public bool isDie = false;
+    public float attackDist = 2.0f;
+    public float traceDist = 10.0f;
+
+    private WaitForSeconds ws;
+
     void Start()
     {
+        ws = new WaitForSeconds(0.3f);
+
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         monsterTr = GetComponent<Transform>(); // transform;
+
+        StartCoroutine(CheckMonsterState());
     }
 
-    // Update is called once per frame
-    void Update()
+    // 몬스터의 상태를 측정하는 코루틴
+    IEnumerator CheckMonsterState()
     {
+        while (!isDie)
+        {
+            float distance = Vector3.Distance(playerTr.position, monsterTr.position);
+
+            if (distance <= attackDist)
+            {
+                state = STATE.ATTACK;
+            }
+            else if (distance <= traceDist)
+            {
+                state = STATE.TRACE;
+            }
+            else
+            {
+                state = STATE.IDLE;
+            }
+
+            yield return ws;
+        }
 
     }
 }
