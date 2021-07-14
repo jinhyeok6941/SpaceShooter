@@ -21,7 +21,13 @@ public class FireCtrl : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            Fire();
         }
+    }
+
+    void Fire()
+    {
+        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        audio.PlayOneShot(fireSfx, 0.8f);
     }
 }
