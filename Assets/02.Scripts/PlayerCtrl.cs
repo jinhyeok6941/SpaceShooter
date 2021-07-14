@@ -94,7 +94,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.CompareTag("PUNCH"))
+        if (currHp > 0.0f && coll.CompareTag("PUNCH"))
         {
             currHp -= 10.0f;
             if (currHp <= 0.0f)
@@ -106,6 +106,12 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
-        Debug.Log("Player Die !!!");
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+
+        foreach (var monster in monsters)
+        {
+            //monster.GetComponent<MonsterCtrl>().YouWin();
+            monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
