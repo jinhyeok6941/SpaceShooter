@@ -29,6 +29,7 @@ public class MonsterCtrl : MonoBehaviour
     private int hashTrace;
     private int hashAttack;
     private int hashHit;
+    private int hashPlayerDie;
 
     public float hp = 100.0f;
 
@@ -38,6 +39,7 @@ public class MonsterCtrl : MonoBehaviour
         hashTrace = Animator.StringToHash("IsTrace");
         hashAttack = Animator.StringToHash("IsAttack");
         hashHit = Animator.StringToHash("Hit");
+        hashPlayerDie = Animator.StringToHash("PlayerDie");
 
         ws = new WaitForSeconds(0.3f);
         nv = GetComponent<NavMeshAgent>();
@@ -134,10 +136,17 @@ public class MonsterCtrl : MonoBehaviour
         anim.SetTrigger(hashDie);
     }
 
-
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log(coll.gameObject.name);
+    }
+
+    public void YouWin()
+    {
+        StopAllCoroutines();
+        nv.isStopped = true;
+
+        anim.SetTrigger(hashPlayerDie);
     }
 }
 
