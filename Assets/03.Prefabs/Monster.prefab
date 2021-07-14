@@ -257,7 +257,7 @@ MonoBehaviour:
   state: 0
   isDie: 0
   attackDist: 2
-  traceDist: 10
+  traceDist: 50
   hp: 100
 --- !u!195 &1948769303736955012
 NavMeshAgent:

@@ -8,7 +8,20 @@ public class GameManager : MonoBehaviour
     public GameObject monsterPrefab;
     public float createTime = 3.0f;
 
-    public bool isGameOver = false;
+    private bool isGameOver = false;
+
+    public bool IsGameOver
+    {
+        get { return isGameOver; }
+        set
+        {
+            isGameOver = value;
+            if (isGameOver)
+            {
+                CancelInvoke("CreateMonster");
+            }
+        }
+    }
 
     void Start()
     {

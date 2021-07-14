@@ -114,6 +114,8 @@ public class PlayerCtrl : MonoBehaviour
         // 이벤트 발생(Event Raised)
         OnPlayerDie();
 
+        GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver = true;
+
         // GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
 
         // foreach (var monster in monsters)
