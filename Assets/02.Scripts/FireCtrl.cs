@@ -25,6 +25,8 @@ public class FireCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.green);
+
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
@@ -33,7 +35,7 @@ public class FireCtrl : MonoBehaviour
 
     void Fire()
     {
-        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        //Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         audio.PlayOneShot(fireSfx, 0.8f);
         StartCoroutine(this.ShowMuzzleFlash());
         //StartCoroutine("ShowMuzzleFlash");
