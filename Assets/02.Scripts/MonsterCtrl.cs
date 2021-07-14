@@ -24,11 +24,13 @@ public class MonsterCtrl : MonoBehaviour
 
     private WaitForSeconds ws;
     private NavMeshAgent nv;
+    private Animator anim;
 
     void Start()
     {
         ws = new WaitForSeconds(0.3f);
         nv = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
 
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         monsterTr = GetComponent<Transform>(); // transform;
