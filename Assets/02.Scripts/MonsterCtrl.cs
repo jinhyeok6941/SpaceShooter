@@ -33,6 +33,18 @@ public class MonsterCtrl : MonoBehaviour
 
     public float hp = 100.0f;
 
+    void OnEnable()
+    {
+        // 주인공이 사망했을 때 호출되는 이벤트를 연결
+        PlayerCtrl.OnPlayerDie += this.YouWin;
+    }
+
+    void OnDisable()
+    {
+        // 주인공이 사망했을 때 호출되는 이벤트를 연결을 해지
+        PlayerCtrl.OnPlayerDie -= this.YouWin;
+    }
+
     void Start()
     {
         // Animator Controller의 Parameter의 해시값을 추출

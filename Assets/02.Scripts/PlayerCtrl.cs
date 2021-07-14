@@ -111,12 +111,15 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+        // 이벤트 발생(Event Raised)
+        OnPlayerDie();
 
-        foreach (var monster in monsters)
-        {
-            //monster.GetComponent<MonsterCtrl>().YouWin();
-            monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
-        }
+        // GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+
+        // foreach (var monster in monsters)
+        // {
+        //     //monster.GetComponent<MonsterCtrl>().YouWin();
+        //     monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
+        // }
     }
 }
