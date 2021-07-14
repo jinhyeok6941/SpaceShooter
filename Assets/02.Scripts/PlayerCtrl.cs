@@ -26,10 +26,15 @@ public class PlayerCtrl : MonoBehaviour
     public PlayerAnim playerAnim;
 
     private Animation anim;
-    private float turnSpeed = 0;
+    private float turnSpeed = 0.0f;
 
     private float initHp = 100.0f;
     private float currHp = 100.0f;
+
+    // 델리게이트 (Delegate : 대리자) 
+    public delegate void PlayerDieHandler();
+    // 이벤트 정의
+    public static event PlayerDieHandler OnPlayerDie;
 
     // Start is called before the first frame update
     IEnumerator Start()
