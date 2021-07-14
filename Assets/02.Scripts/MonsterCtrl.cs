@@ -30,6 +30,8 @@ public class MonsterCtrl : MonoBehaviour
     private int hashAttack;
     private int hashHit;
 
+    public float hp = 100.0f;
+
     void Start()
     {
         // Animator Controller의 Parameter의 해시값을 추출
@@ -112,7 +114,22 @@ public class MonsterCtrl : MonoBehaviour
         {
             Destroy(coll.gameObject);
             anim.SetTrigger(hashHit);
+            hp -= 25.0f;
+
+            if (hp <= 0.0f)
+            {
+                MonsterDie();
+            }
         }
+    }
+
+    private int hashDie = Animator.StringToHash("Die");
+
+    void MonsterDie()
+    {
+        StopAllCoroutines();
+        nv.isStopped = true;
+        anim.SetTrigger(hashDie);
     }
 
 }
