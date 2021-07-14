@@ -9,11 +9,16 @@ public class FireCtrl : MonoBehaviour
     public Transform firePos;
     public AudioClip fireSfx;
 
+    [SerializeField]
+    private MeshRenderer muzzleFlash;
+
     private new AudioSource audio;
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+
+        muzzleFlash = firePos.GetComponentInChildren<MeshRenderer>();
     }
 
     // Update is called once per frame
