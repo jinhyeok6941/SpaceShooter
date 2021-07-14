@@ -42,7 +42,7 @@ public class FireCtrl : MonoBehaviour
 
     void Fire()
     {
-        //Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         audio.PlayOneShot(fireSfx, 0.8f);
         StartCoroutine(this.ShowMuzzleFlash());
         //StartCoroutine("ShowMuzzleFlash");
