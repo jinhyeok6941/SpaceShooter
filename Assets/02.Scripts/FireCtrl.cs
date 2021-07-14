@@ -31,3 +31,15 @@ public class FireCtrl : MonoBehaviour
         audio.PlayOneShot(fireSfx, 0.8f);
     }
 }
+
+
+/*
+    하늘표현 방식
+    1. Skybox (6-Sided Sky)
+    2. SkyDome
+    3. Procedural Sky
+
+    MipMap
+
+
+*/
