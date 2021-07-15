@@ -48,7 +48,7 @@ public class FireCtrl : MonoBehaviour
         //StartCoroutine("ShowMuzzleFlash");
     }
 
-    // ì½”ë£¨í‹´ (Co-Routine)
+    // ì½”ë£¨?‹´ (Co-Routine)
     IEnumerator ShowMuzzleFlash()
     {
         // Texture Offset
@@ -64,7 +64,7 @@ public class FireCtrl : MonoBehaviour
         float scale = Random.Range(1.0f, 3.0f);
         muzzleFlash.transform.localScale = Vector3.one * scale; // new Vector3(scale, 1, scale)
 
-        // MuzzleFlashì˜ MeshRenderer í™œì„±í™”
+        // MuzzleFlash?˜ MeshRenderer ?™œ?„±?™”
         muzzleFlash.enabled = true;
 
         yield return new WaitForSeconds(0.3f);
@@ -75,7 +75,7 @@ public class FireCtrl : MonoBehaviour
 
 
 /*
-    í•˜ëŠ˜í‘œí˜„ ë°©ì‹
+    ?•˜?Š˜?‘œ?˜„ ë°©ì‹
     1. Skybox (6-Sided Sky)
     2. SkyDome
     3. Procedural Sky
